@@ -10,8 +10,6 @@ import DHome from '../pages/Dhome';
 import { useAppSelector } from '../redux-toolkit/hooks';
 import { selectAuthState } from '../redux-toolkit/authSlice';
 
-
-
 const router = createBrowserRouter([
     {
       path: "/",
@@ -50,7 +48,6 @@ const router = createBrowserRouter([
       ]
     },
 ]);
-
 
 
 export default router

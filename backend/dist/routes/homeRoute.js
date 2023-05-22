@@ -30,10 +30,10 @@ const router = (0, express_1.Router)();
 router.route('/').get((req, res) => {
     res.send('Home');
 });
-// console.log('check type',typeof authController)
+//
 router.route('/login').post(authController.login);
 router.route('/register').post(authController.register);
-router.route('/users').get(authController.users);
+// router.route('/users').get(authController.users)
 router.route('/about').get((req, res) => {
     res.send('Hello from express and typescript');
 });

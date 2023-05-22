@@ -35,14 +35,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.users = exports.profile = exports.dashboard = exports.register = exports.login = void 0;
+exports.profile = exports.dashboard = exports.register = exports.login = void 0;
 const dotenv_1 = __importDefault(require("dotenv"));
 const mongodb = require("mongodb");
 // import { getErrorMessage } from '../utils/errors.util';
 const jwt = require("jsonwebtoken");
 const expressJWT = require("express-jwt");
 const userServices = __importStar(require("../services/user.service"));
+// import { connect } from 'mongoose';
+// import { InputLoginForm, InputRegisterForm } from "../app-types/login.type";
 const error_util_1 = require("../utils/error.util");
+// import {UserModel, I_UserDocument} from "../models/user.model"
 //
 dotenv_1.default.config();
 const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -85,15 +88,13 @@ const profile = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.profile = profile;
-const users = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        userServices.getSample(req, res);
-    }
-    catch (error) {
-        console.log(error);
-    }
-});
-exports.users = users;
+// export const users = async (req: Request, res: Response) => {
+//   try {
+//       userServices.getSample(req , res)
+//   } catch(error) {
+//       console.log(error)
+//   }
+// };
 // app.get("/users", (requst:Request, response:Response) => {
 //   mongodb.MongoClient.connect(url, (err:string, client:any) => {
 //     if (err) throw err;

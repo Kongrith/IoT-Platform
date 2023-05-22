@@ -8,12 +8,10 @@ router.route('/').get((req: Request, res: Response):void => {
     res.send('Home');
 });
 
-// console.log('check type',typeof authController)
+//
 router.route('/login').post(authController.login)
 router.route('/register').post(authController.register)
-router.route('/users').get(authController.users)
-
-
+// router.route('/users').get(authController.users)
 router.route('/about').get((req: Request, res: Response):void => {
     res.send('Hello from express and typescript');
 });

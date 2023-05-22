@@ -7,16 +7,14 @@ const mongodb = require("mongodb");
 const jwt = require("jsonwebtoken");
 const expressJWT = require("express-jwt");
 import * as userServices from '../services/user.service';
-import { connect } from 'mongoose';
-import { InputLoginForm, InputRegisterForm } from "../app-types/login.type";
+// import { connect } from 'mongoose';
+// import { InputLoginForm, InputRegisterForm } from "../app-types/login.type";
 import { getErrorMessage } from '../utils/error.util';
 
-import {UserModel, I_UserDocument} from "../models/user.model"
+// import {UserModel, I_UserDocument} from "../models/user.model"
 
 //
 dotenv.config();
-
-
 
 // type ของ User Profile
 type User = {
@@ -42,7 +40,6 @@ export const register= async (req: Request, res: Response) => {
   }
 } 
 
-
 export const dashboard = async (req: Request, res: Response) => {
   try {
       console.log('dashboard')
@@ -63,13 +60,13 @@ export const profile = async (req: Request, res: Response) => {
   }
 };
 
-export const users = async (req: Request, res: Response) => {
-  try {
-      userServices.getSample(req , res)
-  } catch(error) {
-      console.log(error)
-  }
-};
+// export const users = async (req: Request, res: Response) => {
+//   try {
+//       userServices.getSample(req , res)
+//   } catch(error) {
+//       console.log(error)
+//   }
+// };
 
 
 
