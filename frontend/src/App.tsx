@@ -1,5 +1,6 @@
 // import { useState } from 'react'
-// import './App.css'
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'
 
 import AppFooter from "./components/AppFooter"
 import AppHeader from "./components/AppHeader"

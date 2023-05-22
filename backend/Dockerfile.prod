@@ -1,0 +1,19 @@
+# base image
+FROM node:lts-alpine
+
+# working directory
+WORKDIR /usr/app
+
+# ส่วนที่ไม่ค่อยได้เปลี่ยนแปลงบ่อย (จะดึงจาก cache ได้)
+COPY ./package.json .
+
+# Run Command
+RUN npm install
+
+# copy from host to container
+COPY . .
+
+# Default Command ได้ทีละ 1 คำสั่ง
+CMD ["npm","start"]
+
+EXPOSE 5500

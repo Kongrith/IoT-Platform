@@ -1,0 +1,36 @@
+## run react on the nginx ##
+
+# base image
+FROM node:alpine as builder
+
+# working directory
+WORKDIR /usr/app
+
+# ส่วนที่ไม่ค่อยได้เปลี่ยนแปลงบ่อย (จะดึงจาก cache ได้)
+COPY ./package.json .
+
+# Run Command
+RUN npm install
+
+# copy from host to container
+COPY . .
+
+# Run Command
+RUN npm run build
+
+# Default Command ได้ทีละ 1 คำสั่ง
+# CMD ["npm","start"]
+#use nodemon to run the react application using npm.
+CMD ["nodemon", "--exec", "npm", "start"]
+
+# nginx
+FROM nginx
+
+RUN rm -rf /usr/share/nginx/html/*
+COPY --from=builder /usr/app/dist /usr/share/nginx/html
+
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d
+
+EXPOSE 80
+
