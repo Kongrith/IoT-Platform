@@ -9,9 +9,7 @@ services:
     container_name: mern_mongodb
     volumes:
       - D:\CJ\IoTPlatform\mongodb\data:/data/db
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=1234
+
     networks:
       - mern_stack
     ports:
@@ -29,11 +27,6 @@ services:
     volumes:
       - /usr/app/node_modules
       - D:\CJ\IoTPlatform\backend:/usr/app
-    environment:
-      - DATABASE_USER=admin
-      - DATABASE_PASSWORD=1234
-      - DATABASE_HOST=mongodb
-      - BACKEND_PORT=5500
     ports:
       - "5500:5500"
     networks:
